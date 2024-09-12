@@ -74,7 +74,7 @@ We evaluated their accuracy and AUC to determine the model that consistently ach
 2. **Disloyal Customer** - Gradient Boosting Classifier. It has an accuracy of 94.03% and an AUC mean of 98.17%.
 
 
-## Business Decision
+## 📈 Business Decision
 
 For our business decision, we selected a model for each group based on its highest accuracy. Next, we conducted recursive feature elimination to remove the weakest features. After that, we retrained the selected model for each group using the chosen features and considering both accuracy and AUC mean.
 
