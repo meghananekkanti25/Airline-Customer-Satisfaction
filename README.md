@@ -111,4 +111,7 @@ Furthermore, targeted retention strategies for disloyal customers could help inc
 2. **Categorical Satisfaction Variable**: Satisfaction was recorded as a binary categorical variable (satisfied or neutral/dissatisfied). A numerical scale (e.g., 1-10) would have provided more granular insights and allowed for a more detailed analysis.
 
 
+#### Authors
+Meghana Nekkanti, Henry Wan, Akshay Thirumalreddy, Karim Alami
+
 
