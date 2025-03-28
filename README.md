@@ -3,37 +3,28 @@
 ## ⚙️ Background
 Our project's main objective is to predict future customer satisfaction by analyzing feedback from a specific airline, which we are referring to as Invistco Airlines for this project. We aim to determine the key factors contributing to customer satisfaction and utilize this information to improve the experiences of neutral and dissatisfied customers.
 
-
 ## 📊 Data
+This dataset includes customer feedback from Invistco Airlines, with variables such as passenger demographics (e.g., gender, age, customer type) and satisfaction ratings for various service features like seat comfort, inflight Wi-Fi, and more. This dataset provides a solid base for detailed analysis, helping to uncover trends in customer satisfaction and identify areas for improvement. By exploring these factors, we can enhance service quality and make better decisions to meet customer needs.
 
-This dataset comprises customer feedback from Invistco Airlines, including variables like passenger demographics (e.g., gender, age, and customer type) and satisfaction ratings for various service features such as seat comfort, inflight Wi-Fi, and more. It helps provide a solid foundation for in-depth analysis, exploring customer satisfaction trends, and identifying key factors influencing passenger experiences. By examining these elements, users can uncover critical insights that drive improvements in service quality and enhance decision-making for customer-centric initiatives.
-
-Data source:
-
-You can find the data here: https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction 
-
+Data source: [Airline Passenger Satisfaction Dataset](https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction)
 
 ## 🏁 Getting Started
+To begin, set up the appropriate environment to run a Jupyter Notebook and ensure you have the required library versions. After that, make sure PostgreSQL is installed and running. Then, download the data and the .ipynb file and click "Run All" to start the analysis.
 
-Start by setting up the appropriate environment to run a Jupyter Notebook file to ensure you have the required library versions. Once that is done, ensure you have PostgreSQL installed and running. You can then download the data and .ipynb file and hit "Run All" on the notebook.
-
-The columns listed above have approximately 130K rows of data. Of these, 393 missing values are in the "Arrival Delay in Minutes" column. These are for when there is no delay in the arrival time. We have filled them with 0. We also encoded all the categorical data to numerical values.
-
+The dataset contains about 130K rows, with 393 missing values in the "Arrival Delay in Minutes" column. These missing values were filled with 0, assuming no delay for these cases. We also encoded the categorical variables as numerical values for analysis.
 
 ## 🔎 Exploratory Data Analysis
-
-1. The passenger demographics indicate that most are in the 20- —to 60-year-old age bracket, suggesting targeted services and marketing strategies for this group.
-2. Female passengers slightly outnumber males.
-3. Customer satisfaction levels reveal 82% loyalty, emphasizing the need for retention strategies.
-4. Business class passengers show the highest satisfaction (48%), followed by economy class (45%) and economy plus class (7%).
-5. Satisfaction levels are similar between genders, implying no significant differences.
-6. Business travelers (69%) are more satisfied than personal travelers (31%). The age group 35-44 has the highest satisfaction (23.57%), followed by 45-54 (20.20%), highlighting areas for improvement in the youngest and oldest age groups.
-7. Online boarding and inflight entertainment receive favorable ratings, indicating overall satisfaction. Departure/arrival time convenience is rated well, with most customers finding the timing acceptable.
-
+1. The majority of passengers are in the 20-60 age range, suggesting that services and marketing strategies should be tailored to this demographic.
+2. There are slightly more female passengers than male passengers.
+3. 82% of passengers are loyal, indicating a strong customer base that requires attention to maintain retention.
+4. Business class passengers report the highest satisfaction (48%), followed by economy class (45%) and economy plus (7%).
+5. Satisfaction levels are similar between genders, meaning there are no significant differences based on gender.
+6. Business travelers (69%) tend to be more satisfied than personal travelers (31%). The age group 35-44 has the highest satisfaction (23.57%), followed by 45-54 (20.20%). This suggests a need for improvement in the youngest and oldest age groups.
+7. Passengers rated online boarding and inflight entertainment favorably, indicating general satisfaction with these features.
+8. Departure/arrival time convenience is also rated well, with most passengers finding the timing acceptable.
 
 ## 💭 Predictive Modeling 
-
-In our predictive modeling analysis, we determined that all the variables present in the data effectively predict customer satisfaction. To ensure optimal prediction, we split the data into 60-40 training and testing splits. The dependent variable is 'Satisfaction,' and the rest are the independent variables.
+In the predictive modeling phase, we found that all variables in the dataset contribute to predicting customer satisfaction. We split the data into a 60-40 training and testing split, with 'Satisfaction' as the dependent variable and all other variables as independent.
 
 ### The models we used in this project are:
 1. Logistic Classifier
@@ -43,48 +34,47 @@ In our predictive modeling analysis, we determined that all the variables presen
 5. Gradient Classifier
 6. K Nearest Neighbour Classifier
 
-We evaluated their accuracy and AUC to determine the model that consistently achieved the highest accuracy across various data subsets, helping us select the best model.
+We evaluated the models based on accuracy and AUC to determine which consistently performed the best.
 
-### The results are as follows:
+### Results:
 
 #### Subset based on 'Type of Customer Class': 
-1.  **Business Class** - Random Forest Classifier. It has an accuracy of 97.19% and an AUC mean of 99.55%.
-2.  **Economy Class** - Random Forest Classifier. It has an accuracy of 94.51% and an AUC mean of 98.12%.
-3.  **Economy Plus Class** - Gradient Boosting Classifier. It has an accuracy of 94.01% and an AUC mean of 98.22%.
+1.  **Business Class** - Random Forest Classifier with an accuracy of 97.19% and an AUC mean of 99.55%.
+2.  **Economy Class** -  Random Forest Classifier with an accuracy of 94.51% and an AUC mean of 98.12%.
+3.  **Economy Plus Class** - Gradient Boosting Classifier with an accuracy of 94.01% and an AUC mean of 98.22%.
 
 #### Subset based on 'Gender': 
-1.  **Male** - Random Forest Classifier. It has an accuracy of 95.69% and an AUC mean of 99.22%.
-2.  **Female** - Random Forest Classifier. It has an accuracy of 95.85% and an AUC mean of 99.23%.
+1.  **Male** - Random Forest Classifier with an accuracy of 95.69% and an AUC mean of 99.22%.
+2.  **Female** - Random Forest Classifier with an accuracy of 95.85% and an AUC mean of 99.23%.
 
 #### Subset based on 'Age Group':
-1. **Age group 1 (6-18)** - Gradient Boosting Classifier. It has an accuracy of 95.23% and an AUC mean of 98.46%.
-2. **Age group 2 (19-24)** - Random Forest Classifier. It has an accuracy of 94.57% and an AUC mean of 98.81%.
-3. **Age group 3 (25-34)** - Random Forest Classifier. It has an accuracy of 95.69% and an AUC mean of 99.17%.
-4. **Age group 4 (35-44)** - Random Forest Classifier. It has an accuracy of 94.97% and an AUC mean of 98.85%.
-5. **Age group 5 (45-54)** - Random Forest Classifier. It has an accuracy of 96.25% and an AUC mean of 99.37%. 
-6. **Age group 6 (55-64)** - Gradient Boosting Classifier. It has an accuracy of 95.49% and an AUC mean of 99.19%.
-7. **Age group 7 (>65)** - Gradient Boosting Classifier. It has an accuracy of 94.76% and an AUC mean of 98.25%.
+1. **Age group 1 (6-18)** - Gradient Boosting Classifier with an accuracy of 95.23% and an AUC mean of 98.46%.
+2. **Age group 2 (19-24)** - Random Forest Classifier with an accuracy of 94.57% and an AUC mean of 98.81%.
+3. **Age group 3 (25-34)** - Random Forest Classifier with an accuracy of 95.69% and an AUC mean of 99.17%.
+4. **Age group 4 (35-44)** - Random Forest Classifier with an accuracy of 94.97% and an AUC mean of 98.85%.
+5. **Age group 5 (45-54)** - Random Forest Classifier with an accuracy of 96.25% and an AUC mean of 99.37%.
+6. **Age group 6 (55-64)** - Gradient Boosting Classifier with an accuracy of 95.49% and an AUC mean of 99.19%.
+7. **Age group 7 (>65)** - Gradient Boosting Classifier with an accuracy of 94.76% and an AUC mean of 98.25%.
 
 #### Subset based on 'Type of Travel':
-1. **Business Travel** - Random Forest Classifier. It has an accuracy of 96.25% and an AUC mean of 99.37%.
-2. **Personal Travel** - Gradient Boosting Classifier. It has an accuracy of 95.80% and an AUC mean of 97.83%.
+1. **Business Travel** - Random Forest Classifier with an accuracy of 96.25% and an AUC mean of 99.37%.
+2. **Personal Travel** - Gradient Boosting Classifier with an accuracy of 95.80% and an AUC mean of 97.83%.
 
 #### Subset based on 'Type of Customer':
-1. **Loyal Customer** - Random Forest Classifier. It has an accuracy of 96.67% and an AUC mean of 99.46%.
-2. **Disloyal Customer** - Gradient Boosting Classifier. It has an accuracy of 94.03% and an AUC mean of 98.17%.
-
+1. **Loyal Customer** - Random Forest Classifier with an accuracy of 96.67% and an AUC mean of 99.46%.
+2. **Disloyal Customer** - Gradient Boosting Classifier with an accuracy of 94.03% and an AUC mean of 98.17%.
 
 ## 📈 Business Decision
+We selected the best-performing model for each subset based on accuracy. Afterward, we performed recursive feature elimination to discard the weakest features. We then retrained the selected models using the chosen features, considering both accuracy and AUC mean.
 
-We selected a model for each group based on its highest accuracy for our business decision. Next, we conducted recursive feature elimination to remove the weakest features. After that, we retrained the selected model for each group using the chosen features and considering both accuracy and AUC mean.
+By selecting the highest-performing models for each group and identifying their top three features, we aimed to improve satisfaction by increasing these features' ratings by one point for each group. We then predicted how dissatisfied passengers would respond to these changes based on the test data. With model accuracies consistently above 93%, we can confidently rely on these predictions, allowing us to calculate the costs, profits, and cost-benefit for each scenario.
 
-Our process involves selecting the best-performing model for each subset and identifying its top three essential features. We plan to increase the satisfaction rating by one for each of these features and predict how the initially dissatisfied passengers will be expected to be satisfied based on the test data. With model accuracies consistently above 93%, we can be confident in the accuracy of our predictions, enabling us to calculate the cost, profit, and cost-benefit of each scenario.
+We assigned a profit per unit (for those initially dissatisfied but predicted to be satisfied with increased satisfaction) at $500. We also determined the cost for each feature per unit increase:
 
-We assigned the profit per unit (as dissatisfied in the test, but prediction with increased satisfaction predicts satisfaction) at $500. We assigned the following costs for each variable per unit increase:
 1. Flight Distance: $400
-2. Inflight wifi Service: $80
+2. Inflight Wi-Fi Service: $80
 3. Ease of Online Booking: $60
-4. Gate location: $140
+4. Gate Location: $140
 5. Food and Drink: $100
 6. Online Boarding: $70
 7. Seat Comfort: $110
@@ -96,14 +86,13 @@ We assigned the profit per unit (as dissatisfied in the test, but prediction wit
 13. Inflight Service: $40
 14. Cleanliness: $20
 
-
 ## 🔖 Takeaway and Next Steps
 
-The Random Forest Classifier and the Gradient Boosting Classifier emerged as the top-performing models for our selected subsets, consistently surpassing other models in accuracy and AUC. Consequently, we have used these models to inform our business decisions for the respective subsets.
+The Random Forest and Gradient Boosting Classifiers emerged as the most accurate models for each subset, consistently outperforming others in terms of accuracy and AUC. We used these models to guide our business decisions for each group.
 
-Our decision performance analysis highlights that Inflight wifi service and Online Boarding are the most profitable features in terms of cost-benefit. Enhancements to these features could generate over $20,000 in additional revenue. Following these, Inflight Entertainment and Ease of Online Booking offer substantial benefits, with potential yields of approximately $10,000 and $3,500, respectively.
+Our analysis highlights that improvements to Inflight Wi-Fi Service and Online Boarding offer the greatest cost-benefit, with the potential to generate over $20,000 in additional revenue. Inflight Entertainment and Ease of Online Booking are also valuable, offering benefits of about $10,000 and $3,500, respectively.
 
-We recommend that Invistco Airlines focus on improving Inflight wifi service and Entertainment and enhancing Online Booking and Boarding services. Allocating more budget to these improvements is expected to boost customer satisfaction and, in turn, drive future profits and revenue growth.
+We recommend that Invistco Airlines prioritize enhancements to Inflight Wi-Fi, Entertainment, and Online Booking/Boarding services. Allocating more resources to these areas should help increase customer satisfaction and lead to higher profits.
 
 <br>
 <h2 align="center">Total Cost Benefit of Different Features</h2>
@@ -112,11 +101,14 @@ We recommend that Invistco Airlines focus on improving Inflight wifi service and
 </p>
 <br>
 
-Alongside these recommendations, we suggest addressing satisfaction levels for subgroups with high dissatisfaction rates. For instance, over 60% of customers in the economy group are dissatisfied. Tailoring services and amenities to meet the specific needs and preferences of this group could enhance their experience.
+In addition to these recommendations, we suggest focusing on passengers who are highly dissatisfied, particularly in the economy class, where over 60% are dissatisfied. Tailoring services to their needs could improve their experience.
 
-Additionally, implementing targeted retention strategies for disloyal customers could improve their satisfaction and reduce churn. Offering discounts and special deals to these customers might encourage loyalty and foster better overall satisfaction.
+Furthermore, targeted retention strategies for disloyal customers could help increase their satisfaction and reduce churn. Offering special deals and discounts to these customers could boost loyalty and overall satisfaction.
 
 
 ## 🖍️ Limitations
-1. **Lack of Additional Information**: The dataset lacked key details such as ticket price and Inflight service/food costs, which would have simplified the calculation of the business decision using actual values rather than assumptions.
-2. **Categorical Satisfaction Variable**: Satisfaction was recorded as a binary categorical variable (satisfied or neutral/dissatisfied). A numerical scale (e.g., 1-10) for measuring customer satisfaction would have provided more detailed insights and allowed for a more nuanced analysis.
+1. **Lack of Additional Information**: The dataset did not include details like ticket prices or costs for inflight services/food, making it harder to calculate the business decision using actual values instead of assumptions.
+2. **Categorical Satisfaction Variable**: Satisfaction was recorded as a binary categorical variable (satisfied or neutral/dissatisfied). A numerical scale (e.g., 1-10) would have provided more granular insights and allowed for a more detailed analysis.
+
+
+
